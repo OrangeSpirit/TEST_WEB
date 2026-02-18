@@ -2,10 +2,16 @@
 
 body {
     background: rgb(0, 145, 255);
-    color: #fff
+    color:rgb(64, 255, 0)
 }
 
 h1 {
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
+}
+
+.header__img {
+    display: block;
+    width: 43px;
+    height: 43px;
 }
