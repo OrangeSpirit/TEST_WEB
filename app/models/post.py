@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timezone
 from ..extensions import db
 
 class Post(db.Model):
@@ -6,4 +6,4 @@ class Post(db.Model):
     teacher = db.Column(db.String(250))
     subject = db.Column(db.String(250))
     student = db.Column(db.String(250))
-    date = db.Column(db.DateTime, default=datetime.utcnow)
+    date = db.Column(db.DateTime, default=lambda: datetime.now(timezone.utc))
