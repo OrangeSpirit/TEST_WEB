@@ -2,17 +2,20 @@
 
 {% block title %}All Theme :{% endblock %}
 
-{% block style %}<link rel="stylesheet" href="{{ url_for('static', filename='css/blocks/table.css') }}">{% endblock %}
+{% block style %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/blocks/table.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/libs/font-awesome.min.css') }}">
+{% endblock %}
+
 
 {% block content %}
-<div calss="table-responsive custom-table-responsive">
+<div class="table-responsive custom-table-responsive">
     <table class="table custom-table">
         <thead>
-            <tr>
-                <th scope="col">Teacher table</th>
-                <th scope="col">Theme</th>
-                <th scope="col">Student</th>
-            </tr>
+            <th scope="col">Teacher table</th>
+            <th scope="col">Theme</th>
+            <th scope="col">Student</th>
+            <th scope="col">Action</th>
         </thead>
         <tbody>
             {% for post in posts %}
@@ -20,6 +23,10 @@
                 <td>{{ post.teacher }}</td>
                 <td>{{ post.subject }}</td>
                 <td>{{ post.student }}</td>
+                <td>
+                    <a href="{{ url_for('post.update', id=post.id)}}" class="btn-sm btn-secondary"><span class="fa fa-edit"></span></a>
+                    <a href="#" class="btn-sm btn-danger"><span class="fa fa-trash"></span></a>
+                </td>
             </tr>
             {% endfor %}
         </tbody>

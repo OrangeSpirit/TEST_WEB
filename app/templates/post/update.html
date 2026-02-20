@@ -1,0 +1,12 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Edit Theme{% endblock %}
+
+{% block content %}
+<form method="post" class="form-control d-flex flex-column gap-2">
+    <input name="teacher" type placeholder="FIO Teacher" class="form-control">
+    <input name="subject" type placeholder="Theme" class="form-control">
+    <input name="student" type placeholder="FIO Student" class="form-control">
+    <input value="Update" type="submit" class="btn btn-success">
+</form>
+{% endblock %}
