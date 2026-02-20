@@ -1,3 +1,26 @@
 {% extends 'main/base.html' %}
 
 {% block title %}All Theme :{% endblock %}
+
+{% block style %}<link rel="stylesheet" href="{{ url_for('static', filename='css/blocks/table.css') }}">{% endblock %}
+
+{% block content %}
+<div calss="table-responsive custom-table-responsive">
+    <table class="table custom-table">
+        <thead>
+            <tr>
+                <th scope="col">Teacher table</th>
+                <th scope="col">GGGGGGGGGGGgGG</th>
+                <th scope="col">TTTTTTTTTTTTT</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr scope="row">
+                <td>$@%#$%@#$%</td>
+                <td>RETYERTYERTY</td>
+                <td>XCVBXCBVBBVBV</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+{% endblock %}
