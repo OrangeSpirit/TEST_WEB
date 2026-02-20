@@ -6,7 +6,7 @@ post = Blueprint('post', __name__)
 
 @post.route('/', methods=['POST', 'GET'])
 def all():
-    posts = Post.query.all()
+    posts = Post.query.order_by(Post.id).all()
     return render_template('post/all.html', posts=posts)
 
 
@@ -34,21 +34,16 @@ def create():
 
 @post.route('/post/<int:id>/update', methods=['POST', 'GET'])
 def update(id):
+    post = Post.query.get(id)
     if request.method == 'POST':
-        teacher = request.form.get('teacher')
-        subject = request.form.get('subject')
-        student = request.form.get('student')
-        print(teacher)
-        print(subject)
-        print(student)
-
-        post = Post(teacher=teacher, subject=subject, student=student)
+        post.teacher = request.form.get('teacher')
+        post.subject = request.form.get('subject')
+        post.student = request.form.get('student')
 
         try:
-            db.session.add(post)
             db.session.commit()
             return redirect('/')
         except Exception as e:
             print(e)
     else:
-        return render_template('post/update.html')
+        return render_template('post/update.html', post=post)
