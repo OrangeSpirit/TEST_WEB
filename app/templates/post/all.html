@@ -10,16 +10,18 @@
         <thead>
             <tr>
                 <th scope="col">Teacher table</th>
-                <th scope="col">GGGGGGGGGGGgGG</th>
-                <th scope="col">TTTTTTTTTTTTT</th>
+                <th scope="col">Theme</th>
+                <th scope="col">Student</th>
             </tr>
         </thead>
         <tbody>
+            {% for post in posts %}
             <tr scope="row">
-                <td>$@%#$%@#$%</td>
-                <td>RETYERTYERTY</td>
-                <td>XCVBXCBVBBVBV</td>
+                <td>{{ post.teacher }}</td>
+                <td>{{ post.subject }}</td>
+                <td>{{ post.student }}</td>
             </tr>
+            {% endfor %}
         </tbody>
     </table>
 </div>
