@@ -21,7 +21,7 @@ def create():
             db.session.commit()
             return redirect('/')
         except Exception as e:
-            print(str(e))
+            print(e)
 
     else:
         return render_template('post/create.html')
