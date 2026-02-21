@@ -40,6 +40,10 @@ def update(id):
         post.subject = request.form.get('subject')
         post.student = request.form.get('student')
 
+        print(post.teacher)
+        print(post.subject)
+        print(post.sutdent)
+
         try:
             db.session.commit()
             return redirect('/')
