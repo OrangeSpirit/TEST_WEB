@@ -47,3 +47,15 @@ def update(id):
             print(e)
     else:
         return render_template('post/update.html', post=post)
+
+
+@post.route('/post/<int:id>/delete', methods=['POST', 'GET'])
+def delete(id):
+    post = Post.query.get(id)
+    try:
+        db.session.delete(post)
+        db.session.commit()
+        return redirect('/')
+    except Exception as e:
+        print(e)
+        return str(e)
