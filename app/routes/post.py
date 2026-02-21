@@ -35,6 +35,7 @@ def create():
 @post.route('/post/<int:id>/update', methods=['POST', 'GET'])
 def update(id):
     post = Post.query.get(id)
+    print(post)
     if request.method == 'POST':
         post.teacher = request.form.get('teacher')
         post.subject = request.form.get('subject')
@@ -42,7 +43,7 @@ def update(id):
 
         print(post.teacher)
         print(post.subject)
-        print(post.sutdent)
+        print(post.student)
 
         try:
             db.session.commit()

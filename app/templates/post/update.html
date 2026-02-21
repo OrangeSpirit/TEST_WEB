@@ -4,9 +4,9 @@
 
 {% block content %}
 <form method="post" class="form-control d-flex flex-column gap-2">
-    <input value="{{ post.teacher }}" type placeholder="FIO Teacher" class="form-control">
-    <input value="{{ post.subject }}" type placeholder="Theme" class="form-control">
-    <input value="{{ post.student }}" type placeholder="FIO Student" class="form-control">
+    <input name="teacher" value="{{ post.teacher }}" type="text" placeholder="FIO Teacher" class="form-control">
+    <input name="subject" value="{{ post.subject }}" type="text" placeholder="Theme" class="form-control">
+    <input name="student" value="{{ post.student }}" type="text" placeholder="FIO Student" class="form-control">
     <input value="Update" type="submit" class="btn btn-success">
 </form>
 {% endblock %}
