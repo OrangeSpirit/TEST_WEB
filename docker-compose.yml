@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   postgress:
-    image: postrgres
+    image: postgres
     container_name: postgres
     volumes:
       - ~/.pg/pg_data/flask-yt:/var/lib/postgresql/data
