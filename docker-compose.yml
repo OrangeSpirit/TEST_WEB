@@ -1,7 +1,5 @@
-version: "3.9"
-
 services:
-  postgress:
+  postgres:
     image: postgres
     container_name: postgres
     volumes:
@@ -22,7 +20,7 @@ services:
     environment:
       - POSTGRES_HOST=${POSTGRES_HOST}
       - POSTGRES_PORT=${POSTGRES_PORT}
-      - POSTGRES-USER=${POSTGRES_USER}
+      - POSTGRES_USER=${POSTGRES_USER}
     depends_on:
       - postgres
     expose:
