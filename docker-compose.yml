@@ -3,7 +3,7 @@ services:
     image: postgres
     container_name: postgres
     volumes:
-      - ~/.pg/pg_data/flask-yt:/var/lib/postgresql/data
+      - ~/.pg/pg_data/flask-yt:/var/lib/postgresql
     env_file:
       - .env
     ports:
