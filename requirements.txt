@@ -4,6 +4,7 @@ click==8.3.1
 Flask==3.1.2
 Flask-Migrate==4.1.0
 Flask-SQLAlchemy==3.1.1
+Flask-WTF==1.2.2
 greenlet==3.3.1
 itsdangerous==2.2.0
 Jinja2==3.1.6
@@ -14,4 +15,6 @@ python-dotenv==1.2.1
 SQLAlchemy==2.0.46
 tomli==2.4.0
 typing_extensions==4.15.0
+uWSGI==2.0.31
 Werkzeug==3.1.5
+WTForms==3.2.1

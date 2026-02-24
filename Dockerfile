@@ -1,10 +1,10 @@
-FROM python:3.12
+FROM python:3.11-slim
 
 WORKDIR /app
 
 ADD . /app
 
-RUN apt install gcc -y
+RUN apt-get update && apt-get install -y libpq-dev gcc
 
 RUN pip install -r requirements.txt
 
