@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, redirect, flash, request, url_for
-from flask_login import login_user
+from flask_login import login_user, logout_user
 
 from ..functions import save_picture
 from ..forms import LoginForm, RegistrationForm
@@ -39,3 +39,9 @@ def login():
         else:
             flash(f"Error log in, please check login and password!", "danger")
     return render_template('user/login.html', form=form)
+
+
+@user.route('/user/logout', methods=['POST', 'GET'])
+def logout():
+    logout_user()
+    return redirect(url_for('post.all'))
