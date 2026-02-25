@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileAllowed
-from wtforms import StringField, PasswordField, SubmitField, FileField
+from wtforms import BooleanField, StringField, PasswordField, SubmitField, FileField
 from wtforms.validators import DataRequired, Length, EqualTo, ValidationError
 
 from .models.user import User
@@ -18,3 +18,11 @@ class RegistrationForm(FlaskForm):
         user = User.query.filter_by(login=login.data).first()
         if user:
             raise ValidationError('This login is taken. Please choose another one...')
+
+
+class LoginForm(FlaskForm):
+    """Form to log in users"""
+    login = StringField('login', validators=[DataRequired(), Length(min=2, max=20)])
+    password = PasswordField('password', validators=[DataRequired()])
+    remember = BooleanField('remember me')
+    submit = SubmitField('sign')
