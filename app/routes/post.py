@@ -1,4 +1,6 @@
 from flask import Blueprint, render_template, request, redirect
+from flask_login import login_required
+
 from ..extensions import db
 from ..models.post import Post
 
@@ -11,6 +13,7 @@ def all():
 
 
 @post.route('/post/create', methods=['POST', 'GET'])
+@login_required
 def create():
     if request.method == 'POST':
         teacher = request.form.get('teacher')
@@ -33,6 +36,7 @@ def create():
 
 
 @post.route('/post/<int:id>/update', methods=['POST', 'GET'])
+@login_required
 def update(id):
     post = Post.query.get(id)
     print(post)
@@ -40,11 +44,6 @@ def update(id):
         post.teacher = request.form.get('teacher')
         post.subject = request.form.get('subject')
         post.student = request.form.get('student')
-
-        print(post.teacher)
-        print(post.subject)
-        print(post.student)
-
         try:
             db.session.commit()
             return redirect('/')
@@ -55,6 +54,7 @@ def update(id):
 
 
 @post.route('/post/<int:id>/delete', methods=['POST', 'GET'])
+@login_required
 def delete(id):
     post = Post.query.get(id)
     try:

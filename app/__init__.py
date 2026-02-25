@@ -20,6 +20,7 @@ def create_app(config_class=Config):
     # LOGIN MANAGER
     login_manager.login_view = 'user.login'
     login_manager.login_message = 'You cannot access this page. You must log in'
+    login_manager.login_message_category = 'info'
 
     with app.app_context():
         db.create_all()

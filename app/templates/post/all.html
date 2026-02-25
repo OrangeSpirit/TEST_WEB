@@ -15,7 +15,7 @@
             <th scope="col">Teacher table</th>
             <th scope="col">Theme</th>
             <th scope="col">Student</th>
-            <th scope="col">Action</th>
+            {% if current_user.is_authenticated %}<th scope="col">Action</th>{% endif %}
         </thead>
         <tbody>
             {% for post in posts %}
@@ -23,10 +23,12 @@
                 <td>{{ post.teacher }}</td>
                 <td>{{ post.subject }}</td>
                 <td>{{ post.student }}</td>
+            {% if current_user.is_authenticated %}
                 <td>
                     <a href="{{ url_for('post.update', id=post.id) }}" class="btn btn-sm btn-secondary"><span class="fa fa-edit"></span></a>
                     <a href="{{ url_for('post.delete', id=post.id) }}" class="btn btn-sm btn-danger"><span class="fa fa-trash"></span></a>
                 </td>
+            {% endif %}
             </tr>
             {% endfor %}
         </tbody>
