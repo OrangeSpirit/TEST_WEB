@@ -1,6 +1,11 @@
 import os
 
 class Config(object):
+    APPNAME = 'app'
+    ROOT = os.path.abspath(APPNAME)
+    UPLOAD_PATH = '/static/upload/'
+    SERVER_PATH = ROOT + UPLOAD_PATH
+
     USER = os.environ.get('POSTGRES_USER', 'web_user')
     PASSWORD = os.environ.get('POSTGRES_PASSWORD', 'web_password')
     HOST = os.environ.get('POSTGRES_HOST', 'localhost')
